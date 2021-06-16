@@ -14,7 +14,8 @@ import {
   Redirect
 } from "react-router-dom";
 
-const socket = io('ws://localhost:8000')
+// const socket = io('ws://localhost:8000')
+const socket = io('https://desolate-wildwood-84328.herokuapp.com/')
 
 function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName'))

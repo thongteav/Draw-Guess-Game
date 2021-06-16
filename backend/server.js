@@ -1,20 +1,19 @@
 const express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 const db = require('./config/db');
-const bodyParser = require('body-parser');
 const app = express();
 var cors = require('cors');
 
 var server = require('http').createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://wizardly-rosalind-50129e.netlify.app"],
     methods: ["GET", "POST"]
   }
 })
 
 app.use(cors())
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 var all_room_info = []
 var all_users = []
